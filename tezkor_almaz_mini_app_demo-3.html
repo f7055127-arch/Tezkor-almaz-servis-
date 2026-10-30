@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#090d1b">
+<title>TEZKOR ALMAZ SERVIS</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+:root{--bg:#090d1b;--panel:#131a2d;--panel2:#1a2340;--blue:#16c8ff;--purple:#8d5cff;--muted:#9aa7c3;--white:#f7f9ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% -10%,#18285b 0,#090d1b 45%);color:var(--white);font-family:Arial, sans-serif;padding:18px 16px 100px}
+header{display:flex;align-items:center;gap:12px;margin:8px 0 20px}.logo{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,#04cfff,#7d45ff);display:grid;place-items:center;font-size:27px;font-weight:900;box-shadow:0 0 24px #167cff55}.brand{font-weight:900;letter-spacing:.4px}.sub{font-size:12px;color:var(--muted);margin-top:4px}
+.card{background:linear-gradient(135deg,#151d33,#101629);border:1px solid #293553;border-radius:22px;padding:17px;margin-bottom:15px;box-shadow:0 10px 30px #0003}
+.balance{display:flex;align-items:center;justify-content:space-between}.muted{color:var(--muted);font-size:12px;font-weight:700;letter-spacing:1px}.amount{font-size:28px;font-weight:900;margin-top:5px}
+button{border:0;color:white;font-weight:800;border-radius:14px;padding:13px 16px;background:linear-gradient(100deg,#8b5cf6,#a56aff);font-size:14px}
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0 20px}.quick button{background:#151c30;border:1px solid #293553;text-align:left}
+.banner{border-radius:20px;padding:20px;background:linear-gradient(110deg,#111c48,#3a1680 55%,#071a36);border:1px solid #304b9a;margin:16px 0 22px;min-height:120px;display:flex;align-items:center;justify-content:space-between;overflow:hidden}.banner strong{font-size:20px;line-height:1.2}.banner small{display:block;color:#c6d8ff;margin-top:8px}.diamond{font-size:58px;filter:drop-shadow(0 0 12px #11cfff)}
+h2{font-size:18px;margin:20px 0 12px}.games{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.game{background:#141c30;border:1px solid #273451;border-radius:18px;padding:13px;text-align:center;cursor:pointer}.game .emoji{font-size:40px;margin-bottom:7px}.game b{font-size:14px}.game p{font-size:11px;color:var(--muted);margin:5px 0 0}
+nav{position:fixed;bottom:0;left:0;right:0;background:#10172aee;backdrop-filter:blur(12px);border-top:1px solid #293553;display:grid;grid-template-columns:repeat(5,1fr);padding:10px 5px calc(10px + env(safe-area-inset-bottom));z-index:5}nav button{background:transparent;color:#9aa7c3;padding:7px 2px;font-size:11px;border-radius:12px}nav button.active{background:#7548db;color:white}nav span{display:block;font-size:19px;margin-bottom:4px}
+.page{display:none}.page.active{display:block}.back{background:#202b49;margin-bottom:12px}.product{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:10px 0;padding:14px;background:#151d32;border-radius:15px;border:1px solid #283653}.product small{display:block;color:var(--muted);margin-top:4px}.product button{padding:10px 12px}.field{width:100%;padding:14px;border-radius:13px;background:#0d1426;border:1px solid #33415f;color:white;margin:8px 0 12px;font-size:15px}.notice{font-size:12px;color:#aebbd5;line-height:1.5}.empty{text-align:center;color:var(--muted);padding:30px 8px}
+</style>
+</head>
+<body>
+<header><div class="logo">A💎</div><div><div class="brand">TEZKOR ALMAZ SERVIS</div><div class="sub">O‘yinlar va raqamli xizmatlar do‘koni</div></div></header>
+
+<main>
+<section id="home" class="page active">
+ <div class="card balance"><div><div class="muted">BALANS</div><div class="amount">0 so‘m</div></div><button onclick="showPage('topup')">＋ To‘ldirish</button></div>
+ <div class="quick"><button onclick="showPage('promo')">🎟 Promokodlar</button><button onclick="showPage('help')">🎧 Yordam</button></div>
+ <div class="banner"><div><strong>O‘YINLAR UCHUN<br>OLMOS VA TOP-UP</strong><small>Qulay buyurtma • Tezkor xizmat</small></div><div class="diamond">💎</div></div>
+ <h2>Ommabop o‘yinlar</h2>
+ <div class="games">
+  <div class="game" onclick="openGame('Free Fire')"><div class="emoji">💎</div><b>Free Fire</b><p>Olmoslar</p></div>
+  <div class="game" onclick="openGame('PUBG Mobile')"><div class="emoji">🎯</div><b>PUBG Mobile</b><p>UC paketlari</p></div>
+  <div class="game" onclick="openGame('Mobile Legends')"><div class="emoji">⚔️</div><b>Mobile Legends</b><p>Diamonds</p></div>
+  <div class="game" onclick="openGame('Standoff 2')"><div class="emoji">🔫</div><b>Standoff 2</b><p>Gold</p></div>
+ </div>
+</section>
+<section id="games" class="page"><h2>🎮 O‘yinlar</h2><div class="games">
+ <div class="game" onclick="openGame('Free Fire')"><div class="emoji">💎</div><b>Free Fire</b><p>Olmoslar</p></div>
+ <div class="game" onclick="openGame('PUBG Mobile')"><div class="emoji">🎯</div><b>PUBG Mobile</b><p>UC paketlari</p></div>
+ <div class="game" onclick="openGame('Mobile Legends')"><div class="emoji">⚔️</div><b>Mobile Legends</b></div>
+ <div class="game" onclick="openGame('Standoff 2')"><div class="emoji">🔫</div><b>Standoff 2</b></div>
+ </div></section>
+<section id="catalog" class="page"><button class="back" onclick="showPage('games')">← Orqaga</button><h2 id="gameTitle">Free Fire</h2><label class="muted">O‘YINCHI ID</label><input id="playerId" class="field" placeholder="Free Fire ID raqamingiz"><div id="products"></div><p class="notice">Bu hozircha namoyish katalogi. Haqiqiy narxlar, to‘lov va olmos yuborish ta’minotchi API hamda tasdiqlangan to‘lov tizimi ulangandan keyin ishlaydi.</p></section>
+<section id="topup" class="page"><h2>💳 Balansni to‘ldirish</h2><div class="card"><p>To‘lov provayderi ulanmagan.</p><p class="notice">Haqiqiy to‘lovlarni qabul qilish uchun qonuniy merchant hisobi va provayder tasdig‘i kerak. Hozircha bu bo‘lim namoyish rejimida.</p></div></section>
+<section id="orders" class="page"><h2>📦 Buyurtmalarim</h2><div class="empty">Hozircha buyurtmalar yo‘q.</div></section>
+<section id="profile" class="page"><h2>👤 Profil</h2><div class="card"><b id="tgName">Telegram foydalanuvchisi</b><p class="notice">Profil ma’lumotlari Telegram Mini App orqali keyinchalik serverga xavfsiz uzatiladi.</p></div></section>
+<section id="promo" class="page"><h2>🎟 Promokodlar</h2><input class="field" placeholder="Promokodni kiriting"><button onclick="alert('Promokod tekshirish tizimi hali ulanmagan.')">Tekshirish</button></section>
+<section id="help" class="page"><h2>🎧 Yordam</h2><div class="card">Savollaringiz bo‘lsa, administrator bilan bog‘laning.<p class="notice">Admin username keyin sozlanadi.</p></div></section>
+</main>
+<nav>
+<button class="active" data-page="home" onclick="showPage('home',this)"><span>⌂</span>Asosiy</button>
+<button data-page="games" onclick="showPage('games',this)"><span>🎮</span>O‘yinlar</button>
+<button data-page="topup" onclick="showPage('topup',this)"><span>▣</span>To‘ldirish</button>
+<button data-page="orders" onclick="showPage('orders',this)"><span>◷</span>Buyurtmalar</button>
+<button data-page="profile" onclick="showPage('profile',this)"><span>♙</span>Profil</button>
+</nav>
+<script>
+const tg=window.Telegram?.WebApp; if(tg){tg.ready();tg.expand();const u=tg.initDataUnsafe?.user;if(u)document.getElementById('tgName').textContent=[u.first_name,u.last_name].filter(Boolean).join(' ');}
+function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');else{const b=document.querySelector(`nav button[data-page="${id}"]`);if(b)b.classList.add('active');}window.scrollTo(0,0);}
+const catalog={'Free Fire':[['100 olmos','Namoyish narxi'],['310 olmos','Namoyish narxi'],['520 olmos','Namoyish narxi'],['1060 olmos','Namoyish narxi']], 'PUBG Mobile':[['60 UC','Namoyish narxi'],['325 UC','Namoyish narxi'],['660 UC','Namoyish narxi']], 'Mobile Legends':[['86 diamonds','Namoyish narxi'],['172 diamonds','Namoyish narxi']], 'Standoff 2':[['Gold paketi','Namoyish narxi']]};
+function openGame(name){document.getElementById('gameTitle').textContent=name;const box=document.getElementById('products');box.innerHTML='';(catalog[name]||[]).forEach((p,i)=>{const d=document.createElement('div');d.className='product';d.innerHTML=`<div><b>${p[0]}</b><small>${p[1]}</small></div><button onclick="demoOrder('${name}','${p[0]}')">Tanlash</button>`;box.appendChild(d)});showPage('catalog');}
+function demoOrder(game,item){const id=document.getElementById('playerId').value.trim();if(!id){alert('Avval o‘yinchi ID raqamini kiriting.');return;}alert('Namoyish: '+game+' — '+item+'. Haqiqiy buyurtma uchun yetkazib beruvchi API va to‘lov tizimi ulanishi kerak.');}
+</script>
+</body>
+</html>
